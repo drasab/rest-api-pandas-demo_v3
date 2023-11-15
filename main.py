@@ -3,5 +3,13 @@ from flask import Flask
 app = Flask(__name__)  # Flask("main.py")
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello world</p>"
+def home():
+    return "<h1><a href='/about'>Home page</a></h1>"
+
+@app.route("/about")
+def about():
+    return "<p>About page</p>"
+
+@app.route("/user/<username>")
+def user(username):
+    return f"<h3>User page for: {username}</h3>"
